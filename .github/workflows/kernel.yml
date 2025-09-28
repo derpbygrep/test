@@ -24,6 +24,8 @@ jobs:
           sudo apt install -y curl wget
           mkdir kernel
           cd kernel
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git init
           git remote add origin https://git.codelinaro.org/clo/la/kernel/qcom
           git fetch origin
