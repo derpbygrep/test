@@ -1,0 +1,37 @@
+name: Kernel Setup
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run commands
+        run: |
+          sudo apt install -y curl wget
+          mkdir kernel
+          cd kernel
+          git init
+          git remote add origin https://github.com/${{ github.repository }}
+          git fetch origin
+          git clone https://github.com/OnePlusOSS/android_kernel_common_oneplus_sm8635 --depth=1 k
+          cp -r k/* kernel/
+          git add .
+          git commit -m "Initial"
+          curl -Ls https://raw.githubusercontent.com/LineageOS/scripts/refs/heads/main/best-caf-kernel/best-caf-kernel.py > best-caf-kernel.py
+          curl -Ls https://raw.githubusercontent.com/grepfox/local_manifest/refs/heads/lexus/tags.txt > tags.txt
+          curl -Ls https://raw.githubusercontent.com/derpbygrep/test/refs/heads/main/run.py > run.py
+          python3 run.py
