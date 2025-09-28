@@ -28,7 +28,7 @@ jobs:
           git remote add origin https://git.codelinaro.org/clo/la/kernel/qcom
           git fetch origin
           git clone https://github.com/OnePlusOSS/android_kernel_common_oneplus_sm8635 --depth=1 ~/k
-          cp -r ~/k/* kernel/
+          cp -r ~/k/* ~/kernel/
           git add .
           git commit -m "Initial"
           curl -Ls https://raw.githubusercontent.com/LineageOS/scripts/refs/heads/main/best-caf-kernel/best-caf-kernel.py > best-caf-kernel.py
