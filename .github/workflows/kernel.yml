@@ -36,5 +36,6 @@ jobs:
           curl -Ls https://raw.githubusercontent.com/LineageOS/scripts/refs/heads/main/best-caf-kernel/best-caf-kernel.py > best-caf-kernel.py
           curl -Ls https://raw.githubusercontent.com/grepfox/local_manifest/refs/heads/lexus/tags.txt > tags.txt
           curl -Ls https://raw.githubusercontent.com/derpbygrep/test/refs/heads/main/run.py > run.py
-          python3 best-caf-kernel "*"
-#          python3 run.py
+          python3 run.py
+     #     python3 best-caf-kernel "*"
+ 
